@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
   res.send('API funcionando 🎉');
 });
 
+// 👉 Importa y usa tus rutas de usuarios
+const usuariosRoutes = require('./routes/usuarios');
+app.use('/api/usuarios', usuariosRoutes);
+
 // Conectar a MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {

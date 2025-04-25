@@ -1,1 +1,26 @@
-<p>home works!</p>
+<h2>Registrar usuario</h2>
+
+<form (ngSubmit)="registrarUsuario()" #usuarioForm="ngForm">
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="nuevoUsuario.name"
+    required
+    placeholder="Nombre del usuario"
+  />
+  <button type="submit" [disabled]="usuarioForm.invalid">Registrar</button>
+</form>
+
+<hr />
+
+<h2>Lista de usuarios</h2>
+
+<ul *ngIf="usuarios.length > 0">
+  <li *ngFor="let usuario of usuarios">
+    {{ usuario.name }}
+  </li>
+</ul>
+
+<p *ngIf="usuarios.length === 0">
+  No hay usuarios o aún se están cargando...
+</p>
